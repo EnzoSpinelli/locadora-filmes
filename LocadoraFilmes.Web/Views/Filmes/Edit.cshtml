@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+@model LocadoraFilmes.Web.Models.Filme
+
+<h2>Editar Filme</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FilmeId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Titulo)
+        @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Diretor)
+        @Html.TextBoxFor(model => model.Diretor, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ano)
+        @Html.TextBoxFor(model => model.Ano, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Disponivel)
+        @Html.CheckBoxFor(model => model.Disponivel)
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+}

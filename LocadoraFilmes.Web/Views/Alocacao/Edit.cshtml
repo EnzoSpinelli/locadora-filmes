@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+@model LocadoraFilmes.Web.Models.Locacao
+
+<h2>Editar Locação</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.LocacaoId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.ClienteId, "Cliente")
+        @Html.DropDownList("ClienteId", (SelectList)ViewBag.ClienteId, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmeId, "Filme")
+        @Html.DropDownList("FilmeId", (SelectList)ViewBag.FilmeId, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DataLocacao)
+        @Html.TextBoxFor(model => model.DataLocacao, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DataDevolucao)
+        @Html.TextBoxFor(model => model.DataDevolucao, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+    <button type="submit" the "btn btn-primary">Salvar</button>
+}

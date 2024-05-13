@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+@model IEnumerable<LocadoraFilmes.Web.Models.Locacao>
+
+<h2>Locações</h2>
+<p>
+    @Html.ActionLink("Registrar Nova Locação", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Cliente.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Filme.Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.DataLocacao)</th>
+            <th>@Html.DisplayNameFor(model => model.DataDevolucao)</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Cliente.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Filme.Titulo)</td>
+                <td>@Html.DisplayFor(modelItem => item.DataLocacao.ToShortDateString())</td>
+                <td>@Html.DisplayFor(modelItem => item.DataDevolucao.ToShortDateString())</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.LocacaoId }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.LocacaoId }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.LocacaoId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

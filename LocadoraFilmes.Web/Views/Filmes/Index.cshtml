@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+@model IEnumerable<LocadoraFilmes.Web.Models.Filme>
+
+<h2>Filmes</h2>
+<p>
+    @Html.ActionLink("Adicionar Novo Filme", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.Diretor)</th>
+            <th>@Html.DisplayNameFor(model => model.Ano)</th>
+            <th>@Html.DisplayNameFor(model => model.Disponivel)</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Diretor)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ano)</td>
+                <td>@Html.DisplayFor(modelItem => item.Disponivel ? "Sim" : "Não")</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.FilmeId }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.FilmeId }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.FilmeId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

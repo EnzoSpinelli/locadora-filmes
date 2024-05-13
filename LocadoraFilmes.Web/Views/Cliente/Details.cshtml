@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+@model LocadoraFilmes.Web.Models.Cliente
+
+<h2>Detalhes do Cliente</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd>@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.CPF)</dt>
+        <dd>@Html.DisplayFor(model => model.CPF)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ClienteId }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+</p>

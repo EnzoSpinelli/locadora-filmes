@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+@model LocadoraFilmes.Web.Models.Locacao
+
+<h2>Detalhes da Locação</h2>
+
+<div>
+    <h4>Locação</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Cliente.Nome)</dt>
+        <dd>@Html.DisplayFor(model => model.Cliente.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Filme.Titulo)</dt>
+        <dd>@Html.DisplayFor(model => model.Filme.Titulo)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.DataLocacao)</dt>
+        <dd>@Html.DisplayFor(model => model.DataLocacao.ToShortDateString())</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.DataDevolucao)</dt>
+        <dd>@Html.DisplayFor(model => model.DataDevolucao.ToShortDateString())</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.LocacaoId }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+</p>
